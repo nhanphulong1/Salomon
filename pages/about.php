@@ -10,5 +10,6 @@
     <?php
     echo "<h1>Thông tin về chúng tôi</h1>"
     ?>
+    <a href="../index.php">Trang chủ</a>
 </body>
 </html>
