@@ -1,5 +1,5 @@
 <?php
 
-echo "<h1 style='color:green'>Xin chào</h1>"
+echo "<h1 style='color:red'>Xin chào</h1>"
 
 ?>
