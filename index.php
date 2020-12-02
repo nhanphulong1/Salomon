@@ -14,6 +14,10 @@ $pass = '123456';
 
 echo "<h1 style='color:red'>Xin chào</h1>";
 
+
+
+
+
 ?>
 <a href="./pages/about.com">Giới thiệu</a>
 <p><?php echo "Bạn tên là <span style='color:blue; font-weight: bold; font-size:30px'>$hoten</span> - Password : <span style='color:blue; font-weight: bold; font-size:30px'>$pass</span>" ?></p>
