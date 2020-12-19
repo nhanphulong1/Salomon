@@ -31,7 +31,7 @@
     <!-- end footer -->
 
     <!-- Nhúng file quản lý phần SCRIPT JAVASCRIPT -->
-    <?php include_once(__DIR__ . '/../../layouts/scripts.php'); ?>
+    <?php include_once(__DIR__ . '/../../layouts/script.php'); ?>
 
     <!-- Các file Javascript sử dụng riêng cho trang này, liên kết tại đây -->
     <!-- <script src="..."></script> -->
