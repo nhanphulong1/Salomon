@@ -28,7 +28,32 @@
                     $caulenh = 'SELECT * From loaisanpham';
                     //Thực thi câu lệnh
                     $result = mysqli_query($conn,$caulenh);
+
+                    //Lấy ra dữ liệu
+                    $ds_loaisanpham =[];
+                    while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
+                        $ds_loaisanpham[] = array(
+                          'lsp_ma' => $row['lsp_ma'],
+                          'lsp_ten' => $row['lsp_ten'],
+                          'lsp_mota' => $row['lsp_mota'],
+                        );
+                      }
                 ?>
+
+                <table border='1' width="100%" class="table table-bordered table-hover mt-2">
+                    <tr>
+                        <th>Mã LSP</th>
+                        <th>Tên LSP</th>
+                        <th>Mô tả LSP</th>
+                    </tr>
+                    <?php foreach ($ds_loaisanpham as $lsp):?>
+                    <tr>
+                        <td><?= $lsp['lsp_ma'] ?></td>
+                        <td><?= $lsp['lsp_ten'] ?></td>
+                        <td><?= $lsp['lsp_mota'] ?></td>
+                    </tr>
+                    <?php endforeach?>
+                </table>
             </div>
             <!-- end Content -->
         </div>
