@@ -19,8 +19,16 @@
             <!-- end sidebar -->
             </div>
             <!-- Content -->
-            <div class="Content">
-                <h1>Nội dung</h1>
+            <div class="col-md-9">
+                <h1>Danh sách loại sản phẩm</h1>
+                <?php
+                    //Ket noi du lieu
+                    include_once(__DIR__ . '/../../../dbconnect.php');
+                    //Cau lenh
+                    $caulenh = 'SELECT * From loaisanpham';
+                    //Thực thi câu lệnh
+                    $result = mysqli_query($conn,$caulenh);
+                ?>
             </div>
             <!-- end Content -->
         </div>

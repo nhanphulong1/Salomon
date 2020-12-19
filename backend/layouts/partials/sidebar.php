@@ -6,7 +6,7 @@
       <li class="nav-item">
         <a href="/backend/pages/dashboard.php">Bảng tin <span class="sr-only">(current)</span></a>
       </li>
-      <hr style="border: 1px solid red; width: 80%;" />
+      <!-- <hr style="border: 1px solid red; width: 80%;" /> -->
       <!-- #################### End Menu các trang Quản lý #################### -->
 
       <!-- #################### Menu chức năng Danh mục #################### -->
