@@ -45,12 +45,22 @@
                         <th>Mã LSP</th>
                         <th>Tên LSP</th>
                         <th>Mô tả LSP</th>
+                        <th>Sửa</th>
+                        <th>Xóa</th>
                     </tr>
                     <?php foreach ($ds_loaisanpham as $lsp):?>
                     <tr>
                         <td><?= $lsp['lsp_ma'] ?></td>
                         <td><?= $lsp['lsp_ten'] ?></td>
                         <td><?= $lsp['lsp_mota'] ?></td>
+                        <td><a href="edit.php?lsp_ma=<?= $lsp['lsp_ma'] ?>" class="btn btn-warning">
+                            <span data-feather="edit"></span>Sửa</a>
+                        </td>
+                        <td>
+                            <a href="delete.php?lsp_ma=<?= $lsp['lsp_ma'] ?>" class="btn btn-danger">
+                                <span data-feather="delete"></span> Xóa
+                            </a>
+                        </td>
                     </tr>
                     <?php endforeach?>
                 </table>
