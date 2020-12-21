@@ -18,7 +18,7 @@
                 <h1>Danh sách sản phẩm</h1>
                 <?php 
                     include_once(__DIR__ . '/../../../dbconnect.php');
-                    $caulenh = 'SELECT * from sanpham';
+                    $caulenh = 'SELECT * FROM sanpham sp JOIN loaisanpham lsp ON sp.lsp_ma=lsp.lsp_ma JOIN nhasanxuat nsx ON sp.nsx_ma = nsx.nsx_ma LEFT JOIN khuyenmai km ON km.km_ma = sp.km_ma ';
                     $result = mysqli_query($conn,$caulenh);
 
                     $ds_sanpham = []

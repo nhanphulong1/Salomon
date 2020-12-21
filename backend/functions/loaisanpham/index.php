@@ -21,6 +21,7 @@
             <!-- Content -->
             <div class="col-md-9">
                 <h1>Danh sách loại sản phẩm</h1>
+                <a href="create.php" class="btn btn-primary">Thêm mới</a>
                 <?php
                     //Ket noi du lieu
                     include_once(__DIR__ . '/../../../dbconnect.php');
