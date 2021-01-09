@@ -53,6 +53,7 @@ EOT;
                             <th>MÃ</th>
                             <th>Tên sản phẩm</th>
                             <th>Hình đại diện</th>
+                            <th>Hành động</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -61,7 +62,11 @@ EOT;
                         <td><?= $hsp['hsp_ma'] ?></td>
                         <td><?= $hsp['sp_ten'] ?></td>
                         <td>
-                            <img src="/Salomon/assets/uploads/<?= $hsp['hsp_tentaptin'] ?>">
+                            <img src="/Salomon/assets/uploads/<?= $hsp['hsp_tentaptin'] ?>" width="50px" height="50px">
+                        </td>
+                        <td>
+                            <a href="edit.php?hsp_ma=<?=$hsp['hsp_ma']; ?>" class="btn btn-warning">Sửa</a>
+                            <a href="delete.php?hsp_ma=<?=$hsp['hsp_ma']; ?>" class="btn btn-danger">Xóa</a>
                         </td>
                     </tr>
                     <?php endforeach?>

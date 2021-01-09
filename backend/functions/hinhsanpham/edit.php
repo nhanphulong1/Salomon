@@ -16,6 +16,9 @@
             </div>
             <?php
                 include_once(__DIR__ . '/../../../dbconnect.php');
+                
+                $hsp_ma = $_GET['hsp_ma'];
+                
                 //Loại sản phẩm
                 $query_sp="select * from sanpham";
 
@@ -28,6 +31,12 @@
                         'sp_ten' => $rowSanPham['sp_ten'],
                     );
                 }
+
+                $caulenhSelect = "SELECT * FROM hinhsanpham where hsp_ma=$hsp_ma";
+
+                $resultSelect = mysqli_query($conn,$caulenhSelect);
+                $hsp = mysqli_fetch_array($resultSelect,MYSQLI_ASSOC);
+                $old_file = __DIR__ . '/../../../assets/uploads/'.$hsp['hsp_tentaptin'];
             ?>
             <div class="col-md-9 content">
                 <h1>Thêm Hình Sản Phẩm</h1>
@@ -36,17 +45,18 @@
                         <label>Sản phẩm:</label>
                         <select name="sp_ma" id="sp_ma" class="form-control">
                             <?php foreach ($dataSanPham as $sp): ?>
-                            <option value="<?= $sp['sp_ma'] ?>"><?= $sp['sp_ten'] ?></option>
+                            <option value="<?= $sp['sp_ma'] ?>" <?= ($hsp['sp_ma']==$sp['sp_ma'])? 'Selected':'' ?>  ><?= $sp['sp_ten'] ?></option>
                             <?php endforeach ?>
                         </select>
                     </div>
                     <div class="preview-img-container">
-                        <img src="/Salomon/assets/uploads/default.png" id="preview-img" width="200px" height="200px" />
+                        <img src="/Salomon/assets/uploads/<?= $hsp['hsp_tentaptin'] ?>" id="preview-img" width="200px" height="200px" />
                     </div>
                     <div class="form_group">
                         <label>Hình sản phẩm:</label>
                         <input type="file" name="hsp_tentaptin" id="hsp_tentaptin">
                     </div>
+                    <div id="note" class="alert alert-warning" role="alert">(*)Nếu không đổi hình thì bỏ trống!</div>
                     <div class="form_group">
                         <button type="submit" name="btn_Luu" class="btn btn-primary">Lưu Hình</button>
                     </div>
@@ -63,20 +73,24 @@
                 $diachi = __DIR__ . '/../../../assets/uploads/';
                 //Kiểm tra upload hình có bị lỗi
                 if($_FILES['hsp_tentaptin']['error']>0){
-                    echo 'Upload lỗi!!';die;
+                    $tenfile = $hsp['hsp_tentaptin'];
                 }else{
                     $tenfile = date('YmdHis').'_'.$_FILES['hsp_tentaptin']['name'];
                     move_uploaded_file($_FILES['hsp_tentaptin']['tmp_name'],$diachi.$tenfile);
-
-
+                    if(file_exists($old_file)){
+                        unlink($old_file);
+                    }
                 }
 
                 $sqlInsert = <<<EOT
-                INSERT INTO hinhsanpham
-                (hsp_tentaptin, sp_ma)
-                VALUES ('$tenfile', $sp_ma)
+                UPDATE hinhsanpham
+                SET
+                    hsp_tentaptin='$tenfile',
+                    sp_ma=$sp_ma
+                WHERE hsp_ma=$hsp_ma
 EOT;
                 mysqli_query($conn,$sqlInsert);
+                
                 echo "<script>location.href = 'index.php';</script>";
             }
         }
