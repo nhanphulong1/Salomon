@@ -136,7 +136,7 @@ EOT;
     <script>
         $(function(){
             $('#tbsanpham').DataTable({
-                scrollY: 400,
+
                 dom: 'Blfrtip',
                 buttons: [
                     'copy', 'excel', 'pdf'
