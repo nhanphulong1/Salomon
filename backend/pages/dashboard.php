@@ -130,7 +130,7 @@
             })
 
             //Tổng số đơn hàng
-            $('#getDuLieuBaoCaoTongSoDonHang').click(function(){
+            function BaocaoTongSoDonHang(){
                 $.ajax('/Salomon/ajax/baocao-tongsodonhang-ajax.php',{
                     success: function(data){
                         var dataObj = JSON.parse(data);
@@ -142,6 +142,10 @@
                         $('#baocaoDonHang_SoLuong').html(htmlString);
                     }
                 });
+            }
+
+            $('#getDuLieuBaoCaoTongSoDonHang').click(function(){
+                BaocaoTongSoDonHang();
             })
 
 
@@ -202,6 +206,8 @@
             //Load khi chạy 
             BaocaoTongSoMatHang();
             BaocaoTongSoKhachHang();
+            BaocaoTongSoGopY();
+            BaocaoTongSoDonHang();
             renderChartThongKeLoaiSanPham();
         });
     </script>
