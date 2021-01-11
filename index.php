@@ -10,7 +10,7 @@
 <?php
 
 $hoten = 'Nhân';
-$pass = '123456';a
+$pass = '123456';
 
 echo "<h1 style='color:red'>Xin chào</h1>";
 
