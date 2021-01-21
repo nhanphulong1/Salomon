@@ -26,8 +26,8 @@
 
                 <?php
                     if(isset($_POST['btnLuu'])){
-                        $ten = $_POST['lsp_ten'];
-                        $mota = $_POST['lsp_mota'];
+                        $ten = htmlentities($_POST['lsp_ten']);
+                        $mota = htmlentities($_POST['lsp_mota']);
 
                         // Kiểm tra ràng buộc dữ liệu (Validation)
                         // Tạo biến lỗi để chứa thông báo lỗi

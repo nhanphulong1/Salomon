@@ -127,7 +127,7 @@ EOT;
                         </div>
                         <div class="form-group col">
                             <label for="">Số lượng</label><br>
-                            <input type="number" name="sp_dh_soluong" id="sp_dh_soluong" class="form-control">
+                            <input type="number" name="sp_dh_soluong" id="sp_dh_soluong" value="1" class="form-control">
                         </div>
                         <div class="form-group col">
                             <label for="">Thêm vào giỏ hàng</label> <br>
@@ -168,7 +168,7 @@ EOT;
 
 
                         //Thêm dữ liệu vào bảng đơn hàng - sản phẩm
-                        $arr_sanpham_ma = $_POST['sp_ma'];
+                        $arr_sanpham_ma = $_POST['sp_ma1'];
                         $arr_sanpham_gia = $_POST['sp_dh_dongia'];
                         $arr_sanpham_soluong = $_POST['sp_dh_soluong'];
                         $dh_ma = $conn->insert_id;
@@ -215,7 +215,7 @@ EOT;
             var thanhtien = sp_gia * soluong;
 
             var htmlTemplate = '<tr>'; 
-            htmlTemplate += '<td>' + sp_ten + '<input type="hidden" name="sp_ma[]" value="' + sp_ma + '"/></td>';
+            htmlTemplate += '<td>' + sp_ten + '<input type="hidden" name="sp_ma1[]" value="' + sp_ma + '"/></td>';
             htmlTemplate += '<td>' + soluong + '<input type="hidden" name="sp_dh_soluong[]" value="' + soluong + '"/></td>';
             htmlTemplate += '<td>' + sp_gia + '<input type="hidden" name="sp_dh_dongia[]" value="' + sp_gia + '"/></td>';
             htmlTemplate += '<td>' + thanhtien + '</td>';
